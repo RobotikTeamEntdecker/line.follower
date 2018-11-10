@@ -1,0 +1,24 @@
+int white=50;
+int black=70;
+float offset;
+float kp=4.70;
+float tp=34.5;
+
+task main(){
+     offset = (white + black) / 2;
+     int lightvalue;
+     float error;
+     float turn;
+     float powerA, powerB;
+     SetSensorLgiht(IN_3);
+     while(true)
+     {
+                lightvalue = Sensor(IN_3);
+                error=lightvalue - offset;
+                turn = kp * error;
+                powerA = tp + turn;
+                powerB = tp - turn;
+                OnFwd(OUT_A,powerA);
+                OnFwd(OUT_B,powerB);
+     }
+}

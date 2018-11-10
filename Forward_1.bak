@@ -1,0 +1,18 @@
+#define THRESHOLD 65
+task main()
+{
+     SetSensorLight(IN_3);
+     OnFwd(OUT_AB, 50);
+     while(true)
+     {
+      if (Sensor(IN_3) > THRESHOLD)
+      {
+       OnRev(OUT_B, 50);
+       until(Sensor(IN_3) <= THRESHOLD or );
+       //Off(OUT_B);
+       //OnFwd(OUT_C, 50);
+       //until(Sensor(IN_3) <= THRESHOLD);
+       OnFwd(OUT_AB, 50);
+       }
+       }
+}
