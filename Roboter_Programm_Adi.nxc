@@ -1,0 +1,24 @@
+task main(){
+     bool ueberpruefen = false;
+     int schwarz = 45;
+     int weiss = 72;
+     SetSensorTouch(IN_1);
+     while (SENSOR_1 == 72){
+           OnRev(OUT_A, 75);
+     }
+     ueberpruefen = true;
+     while(ueberpruefen){
+         OnRev(OUT_A, 75);
+         if(SENSOR_1 == 72){
+             ueberpruefen = false;
+         }
+         if(ueberpruefen){
+             OnFwd(OUT_A, 75);
+             OnRev(OUT_B, 75);
+             if(SENSOR_1 == 72){
+                 ueberpruefen = false;
+             }
+             OnFwd(OUT_B, 75);
+         }
+     }
+}

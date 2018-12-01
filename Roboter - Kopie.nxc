@@ -1,0 +1,61 @@
+bool a = true;
+int weis = 74;
+int schwarz = 41;
+int b = 0;
+int c = 0;
+int zahler = 0;
+task main(){
+SetSensorLight(IN_1);
+while(a){
+           while(SENSOR_1 <= schwarz ){
+           OnRev(OUT_AB, 50);
+           
+           }
+             Off (OUT_AB);
+             if (c==0){
+             while(SENSOR_1 >= schwarz){
+                          OnRev(OUT_A, 32);
+
+                          Wait(1500);
+                          Off (OUT_A);
+                          OnRev(OUT_AB, 50);
+                          Wait(500);
+                          Off(OUT_AB);
+                          c = 1;
+                          b = 0;
+                          OnFwd(OUT_A, 32);
+                          Wait(1500);
+                          Off(OUT_A);
+                   }
+                   }
+             OnFwd(OUT_A, 32);
+             OnRev(OUT_B, 32);
+             Wait(1000);
+             Off(OUT_AB);
+             if(b==1) {
+             if(zahler %2 == 0);
+             while(SENSOR_1 >= schwarz){
+                         OnRev(OUT_B, 32);
+                         Wait(1500);
+                         Off(OUT_AB);
+                         OnRev(OUT_AB, 50);
+                         Wait(500);
+                         Off(OUT_AB);
+                         b = 1;
+                         c = 0;
+                         OnFwd(OUT_B, 32);
+                         Wait(1500);
+                         Off(OUT_B);
+                   }
+                   }
+             OnFwd(OUT_B, 32);
+             OnRev(OUT_A, 32);
+             Wait(1000);
+             Off(OUT_AB);
+             zahler += 1;
+}
+
+
+}
+}
+
