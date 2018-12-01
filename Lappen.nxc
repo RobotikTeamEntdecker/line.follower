@@ -1,0 +1,20 @@
+int schwarz = 47;
+int weis = 71;
+
+task main(){
+     SetSensorLight(IN_1);
+   while(true){
+               while(SENSOR_1 <= 50){
+                              OnRev(OUT_AB,50);
+               }
+               Off(OUT_AB);
+               OnRev(OUT_A, 50);
+               Off(OUT_A);
+               until(SENSOR_1 >=50){
+                              OnRev(OUT_B,50);
+               }
+               Off(OUT_B);
+               }
+               
+   }
+}

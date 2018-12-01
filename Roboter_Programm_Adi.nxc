@@ -2,23 +2,30 @@ task main(){
      bool ueberpruefen = false;
      int schwarz = 45;
      int weiss = 72;
-     SetSensorTouch(IN_1);
-     while (SENSOR_1 == 72){
-           OnRev(OUT_A, 75);
+     SetSensorLight(IN_1);
+     while (true){
+     while (SENSOR_1 <= schwarz){
+           OnRev(OUT_AB, 75);
      }
      ueberpruefen = true;
+     Off(OUT_AB);
+
      while(ueberpruefen){
-         OnRev(OUT_A, 75);
-         if(SENSOR_1 == 72){
-             ueberpruefen = false;
-         }
+             OnRev(OUT_A, 35);
+             OnFwd(OUT_A, 35);
+             Off(OUT_AB);
+             if(SENSOR_1 <= schwarz){
+                 ueberpruefen = false;
+             }
          if(ueberpruefen){
-             OnFwd(OUT_A, 75);
-             OnRev(OUT_B, 75);
-             if(SENSOR_1 == 72){
+             OnFwd(OUT_B, 35);
+             OnRev(OUT_B, 35);
+             Off(OUT_AB);
+             if(SENSOR_1 <= schwarz){
                  ueberpruefen = false;
              }
              OnFwd(OUT_B, 75);
          }
      }
+}
 }
